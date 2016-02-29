@@ -1,0 +1,16 @@
+body {
+	background-color:#FFF;
+}
+
+#draw {
+	background-color:#77F;
+	width:100px;
+}
+
+#canvas {
+	width:600px;
+	height:400px;
+	background-color:#808080;
+}
+
+
