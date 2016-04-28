@@ -2,15 +2,19 @@ body {
 	background-color:#FFF;
 }
 
-#draw {
+#Neighbor {
 	background-color:#77F;
 	width:100px;
 }
 
+#Increase {
+	background-color:#21F;
+	width:100px;
+}
+
 #canvas {
-	width:600px;
-	height:400px;
-	background-color:#234124;
+
+	background-color:#808080;
 }
 
 
