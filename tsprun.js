@@ -1,75 +1,49 @@
+var xcoord = [];
+var ycoord = [];
+
 $(document).ready( function() {
-	var xcoord = [];
-	var ycoord = [];
+	$("#canvas").click( function() {
+	//get context of canvas
 	var canvas = $("#canvas").get(0);
 	var ctx = canvas.getContext("2d");
-
-	//do not put this in the css
-	ctx.canvas.width = 600;
-	ctx.canvas.height = 400;
-
-
-	var dotX = [0];
-	var dotY = [0];
-	
-	$("#canvas").click( function() {
-		var x = event.pageX;
-		var y = event.pageY;
 		
-		//get context of canvas
-		var canvas = $("#canvas").get(0);
-		var ctx = canvas.getContext("2d");
-		
-		//add point to canvas (write this)
+	//add point to canvas
+	var x = event.pageX - canvas.offsetLeft;
+	var y = event.pageY - canvas.offsetTop;
 		 
-		ctx.fillRect(x,y,4,4);
-		
-		//add point to arrays
-		xcoord.push(x);
-		ycoord.push(y);
-
-	});
+	//add point to arrays
+	xcoord.push(x);
+	ycoord.push(y);
 	
-	$("#draw").click( function() {
-		//do algorithm
-		
-		//nearest neighbor 
-		var xtour = [];
-		var ytour = [];
-		xtour.push(xcoord[0]);
-		ytour.push(ycoord[1]);
-		
-		for (var i = 0; i < xcoord.length; i++) {
-			var nearest = 0;
-			var indexofnearest = 0;
-			for (var j = 0; j<xtour.length; j++) {
-				var distance = distance(xtour[j],xcoord[i],ytour[j],ycoord[i]);
-				if (distance < nearest) {
-					nearest = distance;
-					indexofnearest = j;
-				}
-			}
-			
-			
-		}
-}		
-		
-		
-		//draw lines between points
-		var canvas = $("#canvas").get(0);
-		var ctx = canvas.getContext("2d");	
-		ctx.strokeStyle = "#55C"; //change color of line
-		ctx.lineWidth = 4; //change width of line
-		
-		
-		//draw a line between every point
-		
+	ctx.fillRect(x,y,5,5);
+
 	});
 });
 
-function distance(x1, x2, y1, y2) 
-{
-	return Math.sqrt(Math.pow((x1-x2),2) + Math.pow((y1-y2),2));
+
+$(document).ready( function() {
+	$("#canvas").click( function() {
 	
+	//get context of canvas
+	var canvas = $("#canvas").get(0);
+	var ctx = canvas.getContext("2d");
 	
-}
+	var canvas2 = $("#canvas2").get(0);
+	var ctx2 = canvas2.getContext("2d");
+	
+	var canvas3 = $("#canvas3").get(0);
+	var ctx3 = canvas3.getContext("2d");
+	
+	var x = event.pageX - canvas.offsetLeft;
+	var y = event.pageY - canvas.offsetTop;
+	
+	arrayX.push(x);
+	arrayY.push(y);
+	
+	var pixelSize = 2;
+	ctx.fillRect(x,y,pixelSize,pixelSize);
+	ctx2.fillRect(x,y,pixelSize,pixelSize);
+	ctx3.fillRect(x,y,pixelSize,pixelSize);
+	
+	});
+});
